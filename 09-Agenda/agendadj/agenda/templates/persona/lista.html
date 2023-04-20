@@ -1,0 +1,23 @@
+<!-- head para PC -->
+{% extends "persona/base_persona.html" %}
+
+{% load  static %}
+
+{% block content %}
+
+<div class="container">
+
+  <div class="g-start-2 .mb-14" style="grid-row: 2">
+    <h2 style="margin-top:40px">Personas en la Agenda</h2>
+    <form class="mt-20" role="search">
+      <input class="form-control me-2" type="search" placeholder="buscar..." aria-label="Search" style="margin-top:40px">
+      <button class="btn btn-outline-success center" type="submit" id="cargarAPI">Buscar</button>
+    </form>
+  </div>
+
+    <div id="contenido"></div>
+
+</div>
+
+
+{% endblock content %}
