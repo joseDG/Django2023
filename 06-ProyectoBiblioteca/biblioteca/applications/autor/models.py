@@ -1,6 +1,6 @@
 from django.db import models
 
-# managers
+# importarmos los managers
 from .managers import AutorManager
 
 # Create your models here.

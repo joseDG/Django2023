@@ -6,10 +6,12 @@ from applications.autor.models import Autor
 
 #Importar managers
 from .managers import LibroManager, CategoriaManager
+
+
 # Create your models here.
 class Categoria(models.Model):
     nombre = models.CharField(max_length=30)
-
+    #agregando el managers
     objects = CategoriaManager()
 
     def __str__(self):

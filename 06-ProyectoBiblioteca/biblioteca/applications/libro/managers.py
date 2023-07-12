@@ -30,6 +30,7 @@ class LibroManager(models.Manager):
             return self.all()[:10]
 
     def listar_libros2(self, kword, fecah1, fecha2):
+
         date1 = datetime.datetime.strptime(fecah1, "%Y-%m-%d").date()
         date2 = datetime.datetime.strptime(fecha2, "%Y-%m-%d").date()
 
@@ -40,6 +41,7 @@ class LibroManager(models.Manager):
 
         return resultado
 
+    #consultas avanzada - 
     def listar_libros_categoria(self, categoria):
         return self.filter(
             categoria__id=categoria
@@ -60,7 +62,7 @@ class LibroManager(models.Manager):
 
         return resultado
 
-
+#creando un manager para categoria
 class CategoriaManager(models.Manager):
     """ managers para el modelo autor """
 
@@ -68,10 +70,11 @@ class CategoriaManager(models.Manager):
         return self.filter(
             #hace referencia de categoria-libro-autor
             categoria_libro__autores__id=autor
-        ).distinct() #permite solo traer la consultas que no se repitan
+        ).distinct() #trae las consultas que no se repitan
 
     def listar_categoria_libros(self):
         #nos devuleve la operacion arimetica
+        #agregando annotate() -> el conteo de objetos
         resultado = self.annotate(
             num_libros=Count('categoria_libro')
         )
@@ -79,3 +82,10 @@ class CategoriaManager(models.Manager):
             print('********')
             print(r, r.num_libros)
         return resultado
+    
+#probando la shell
+#python manage.py shell
+#creando consultas
+#from applications.libro.models import *
+#Categoria.objects.categoria_por_autor('1')
+#
