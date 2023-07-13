@@ -32,6 +32,7 @@ class Libro(models.Model):
 
     objects = LibroManager()
 
+    #meta datos
     class Meta:
         verbose_name = 'Libro'
         verbose_name_plural = 'Libros'
