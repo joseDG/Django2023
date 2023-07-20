@@ -22,7 +22,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     genero = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)
     codregistro = models.CharField(max_length=6, blank=True)
 
-    #
+    #administrador
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
 
