@@ -74,7 +74,7 @@ class Entry(TimeStampedModel):
     )
     portada = models.BooleanField(default=False)
     in_home = models.BooleanField(default=False)
-    #
+    #sirve para el posicionamiento web
     slug = models.SlugField(editable=False, max_length=300)
 
     objects = EntryManager()
