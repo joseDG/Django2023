@@ -12,6 +12,7 @@ class ListAutores(ListView):
 
     #retorna la informacion de la base de datos
     def get_queryset(self):
+        #permite hacer la solicitud del formulario
         palabra_clave = self.request.GET.get("kword", '')
 
-        return Autor.objects.buscar_autor4(palabra_clave)
+        return Autor.objects.buscar_autor(palabra_clave)

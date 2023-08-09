@@ -31,12 +31,12 @@ class ListLibrosTrg(ListView):
 
         return Libro.objects.listar_libros_trg(palabra_clave)
 
+#consutlas avanzadas
 class ListLibros2(ListView):
     context_object_name = 'lista_libros'
     template_name = 'libro/lista2.html'
 
     def get_queryset(self):
-
         return Libro.objects.listar_libros_categoria('4')
 
 class LibroDetailView(DetailView):

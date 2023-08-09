@@ -19,6 +19,7 @@ class PrestamoManager(models.Manager):
         )
         return resultado
 
+    #agregando el annotate -> permite buscar en uno en uno
     def num_libros_prestados(self):
         resultado = self.values(
             'libro',

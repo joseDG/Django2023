@@ -8,7 +8,7 @@ from django.views.generic import (
     TemplateView
 )
 
-
+# creacion de un mixin
 class FechaMixin(object):
 
     def get_context_data(self, **kwargs):

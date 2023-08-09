@@ -60,7 +60,7 @@ class AddPrestamo(FormView):
         else:
             return HttpResponseRedirect('/')
 
-
+#funcion de guardar un checkmultiple
 class AddMultiplePrestamo(FormView):
     template_name = "lector/add_multiple_prestamo.html"
     form_class = MultiplePrestamoForm

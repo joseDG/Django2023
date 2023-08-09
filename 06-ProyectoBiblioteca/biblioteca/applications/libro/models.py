@@ -1,15 +1,21 @@
 from django.db import models
+#importando signals
 from django.db.models.signals import post_save
+
+#apps tercero
+from PIL import Image
 
 #Importacion de autor
 from applications.autor.models import Autor
 
 #Importar managers
 from .managers import LibroManager, CategoriaManager
+
+
 # Create your models here.
 class Categoria(models.Model):
     nombre = models.CharField(max_length=30)
-
+    #agregando el managers
     objects = CategoriaManager()
 
     def __str__(self):
@@ -30,9 +36,18 @@ class Libro(models.Model):
 
     objects = LibroManager()
 
+    #meta datos
     class Meta:
         verbose_name = 'Libro'
         verbose_name_plural = 'Libros'
 
     def __str__(self):
         return str(self.id) + '-' + self.titulo
+    
+def optimize_image(sender, instance, **kwargs):
+    print(" ======================= ")
+    if instance.portada:
+        portada = Image.open(instance.portada.path)
+        portada.save(instance.portada.path, quality=20, optimize=True)
+
+post_save.connect(optimize_image, sender=Libro)

@@ -31,10 +31,11 @@ class UserRegisterView(FormView):
     form_class = UserRegisterForm
     success_url = '/'
 
+    # registrar la informacion
     def form_valid(self, form):
         # generamos el codigo
         codigo = code_generator()
-        #
+        #aqui mando a llamar desde los managers
         usuario = User.objects.create_user(
             form.cleaned_data['username'],
             form.cleaned_data['email'],

@@ -4,11 +4,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 # seo
-# from django.contrib.sitemaps.views import sitemap
-# from applications.home.sitemap import (
-#     EntrySitemap,
-#     Sitemap,
-# )
+from django.contrib.sitemaps.views import sitemap
+from applications.home.sitemap import (
+     EntrySitemap,
+     Sitemap,
+)
 
 urlpatterns_main = [
     path('admin/', admin.site.urls),

@@ -16,18 +16,20 @@ class Persona(models.Model):
         verbose_name = 'Persona'
         verbose_name_plural = 'Personas'
         db_table = 'persona'
+        #no permiter repetir datos
         unique_together = ['pais', 'apelativo']
         #permite realizar validaciones
         contraints = [
             models.CheckConstraint(check=models.Q(edad__gte=18), name='edad_name')
         ]
         #esto no permite crear el modelo en la base de datos
-        abstract = True
+        abstract = True #no es necesarios crearlo en la base de datos
 
     def __str__(self):
         """unicode representation of Persona."""
         return self.full_name
-
+    
+#agregando herencia
 class Empleados(Persona):
     empleado = models.CharField('Empleo', max_length=50)
 
