@@ -1,5 +1,4 @@
 from django.db import models
-
 # managers
 from .managers import AutorManager
 

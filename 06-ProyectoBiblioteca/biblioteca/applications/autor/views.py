@@ -10,6 +10,7 @@ class ListAutores(ListView):
     context_object_name = 'lista_autores'
     template_name = 'autor/lista.html'
 
+    #retorna la informacion de la base de datos
     def get_queryset(self):
         palabra_clave = self.request.GET.get("kword", '')
 

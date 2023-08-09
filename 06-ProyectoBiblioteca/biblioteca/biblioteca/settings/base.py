@@ -16,7 +16,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.postgres',
-    #
+    #local apps
     'applications.autor',
     'applications.libro',
     'applications.lector',
