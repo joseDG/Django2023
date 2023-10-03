@@ -1,6 +1,6 @@
 from django.db import models
 
-#nos permite hacer la sentia tipo (OR)
+#nos permite utilizar operadores logicos como or and
 from django.db.models import Q
 
 
@@ -12,6 +12,7 @@ class AutorManager(models.Manager):
          return self.all()
 
     def buscar_autor(self, kword):
+        #se aplica un filtro
         resultado = self.filter(
             #permite buscar algo similar
             nombres__icontains=kword
